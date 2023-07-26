@@ -3,7 +3,10 @@ from PIL import Image
 import pandas as pd
 import os, sys
 
-image_path = "spilt_images"
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+image_path = "split_images"
 if image_path not in os.listdir():
     os.mkdir(image_path)
     print("folder created")
@@ -17,6 +20,6 @@ for i in range(data.shape[0]):
         x,y=data.iloc[i][j],data.iloc[i][j+1]
         box = (x-127,y-127,x+129, y+129)
         a = im.crop(box)
-        a.save(image_path+"/"+data.iloc[i][0]+"_"+str(k)+".jpg")
+        a.save(image_path+"/"+data.iloc[i][0][:-4]+"_"+str(k)+".jpg")
         k+=1
 
