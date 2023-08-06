@@ -1,0 +1,13 @@
+split_images2 是 拿來train、test的圖片，有93*4*5張圖(256*256)
+split_images3 是根據預估出來的輪廓來切出來的圖(256*256)
+
+預估邊框位置c++ 是一個visual studio c++專案，用來預估邊框位置
+
+estimatedContour.csv 是存預估出的邊框位置的檔案
+fin.csv 是存split_images3的控制點位置
+train.csv 是原圖的資料
+train2.csv 是split_images2的控制點位置
+
+把資料整理好.py 是記錄員圖資料的檔案(從GCP資料夾讀到的)
+切圖新的.py 是切出split_images2的檔案，用的是PIL
+切圖3.py 是切出split_images3的檔案，也是用PIL
