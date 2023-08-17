@@ -23,32 +23,32 @@ for i in range(data.shape[0]):
     width, height = im.size
     left,right,up,down=data.iloc[i].left,data.iloc[i].right,data.iloc[i].up,data.iloc[i].down
     #left-up
-    xx,yy=10,10
-    box = (left-xx,up-yy,left+256-xx, up+256-yy)
+    xx,yy=100,100
+    box = (left-xx,up-yy,left+512-xx, up+512-yy)
     a = im.crop(box)
     a.save(str(image_path+"/"+imn[:-4]+"_0.jpg"))
     s=f"{str(imn[:-4]+'_0.jpg')},{od.iloc[i].d0x-left+xx},{od.iloc[i].d0y-up+yy}\n"
     print(s)
     www.writelines(s)
     #left-down
-    xx,yy=10,245
-    box = (left-xx,down-yy,left+256-xx, down+256-yy)
+    xx,yy=100,410
+    box = (left-xx,down-yy,left+512-xx, down+512-yy)
     a = im.crop(box)
     a.save(str(image_path+"/"+imn[:-4]+"_1.jpg"))
     s=f"{str(imn[:-4]+'_1.jpg')},{od.iloc[i].d1x-left+xx},{od.iloc[i].d1y-down+yy}\n"
     print(s)
     www.writelines(s)
     #right-up
-    xx,yy=245,10
-    box = (right-xx,up-yy,right+256-xx, up+256-yy)
+    xx,yy=410,100
+    box = (right-xx,up-yy,right+512-xx, up+512-yy)
     a = im.crop(box)
     a.save(str(image_path+"/"+imn[:-4]+"_2.jpg"))
     s=f"{str(imn[:-4]+'_2.jpg')},{od.iloc[i].d2x-right+xx},{od.iloc[i].d2y-up+yy}\n"
     print(s)
     www.writelines(s)
     #right-down
-    xx,yy=245,245
-    box = (right-xx,down-yy,right+256-xx, down+256-yy)
+    xx,yy=410,410
+    box = (right-xx,down-yy,right+512-xx, down+512-yy)
     a = im.crop(box)
     a.save(str(image_path+"/"+imn[:-4]+"_3.jpg"))
     s=f"{str(imn[:-4]+'_3.jpg')},{od.iloc[i].d3x-right+xx},{od.iloc[i].d3y-down+yy}\n"

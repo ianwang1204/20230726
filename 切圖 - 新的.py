@@ -20,14 +20,23 @@ for i in range(data.shape[0]):
     im = Image.open(data.iloc[i][0])
     width, height = im.size
     for j in range(1,9,2):
-        x,y=data.iloc[i][j],data.iloc[i][j+1]
-        xx = random.randint(20,235)
-        yy = random.randint(20, 235)
-        box = (x-xx,y-yy,x+256-xx, y+256-yy)
-        a = im.crop(box)
-        a.save(image_path+"/"+str(now)+".jpg")
-        s=f"{now}.jpg,{xx},{yy}\n"
-        print(s)
-        www.writelines(s)
-        now+=1
+        for k in range(12):
+            x,y=data.iloc[i][j],data.iloc[i][j+1]
+            xx = random.randint(100,410)
+            yy = random.randint(100, 410)
+            if x-xx <= 0:
+                xx=x-1
+            if y-yy <= 0:
+                yy=y-1
+            if x+512-xx >=width :
+                xx = -(width-x-515)
+            if y+512-yy >= height:
+                yy = -(height-y-515)
+            box = (x-xx,y-yy,x+512-xx, y+512-yy)
+            a = im.crop(box)
+            a.save(image_path+"/"+str(now)+".jpg")
+            s=f"{now}.jpg,{xx},{yy}\n"
+            print(s)
+            www.writelines(s)
+            now+=1
 www.close()
