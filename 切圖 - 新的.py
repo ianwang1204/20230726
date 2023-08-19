@@ -20,7 +20,7 @@ for i in range(data.shape[0]):
     im = Image.open(data.iloc[i][0])
     width, height = im.size
     for j in range(1,9,2):
-        for k in range(12):
+        for k in range(20):
             x,y=data.iloc[i][j],data.iloc[i][j+1]
             xx = random.randint(100,410)
             yy = random.randint(100, 410)

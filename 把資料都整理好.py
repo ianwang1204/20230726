@@ -13,7 +13,7 @@ for i in range(1,105,1):
         continue
     if(i<=83 and i>=81): #空
         continue
-    if(i==50 or i==51 or i==22 or i==104 or i==101 or i==88 or i==38): #不良資料
+    if(i==50 or i==51 or i==22 or i==104 or i==101 or i==88 or i==38  or i==91 or i==92 or i==7): #不良資料
         continue
     if(i==2):
         ls.append(s+"a")
