@@ -16,23 +16,26 @@ if image_path not in os.listdir():
 
 data=pd.read_csv("train.csv")
 now=0
+sc=256
+aaa=40
+bbb=210
 for i in range(data.shape[0]):
     im = Image.open(data.iloc[i][0])
     width, height = im.size
     for j in range(1,9,2):
         for k in range(20):
             x,y=data.iloc[i][j],data.iloc[i][j+1]
-            xx = random.randint(100,410)
-            yy = random.randint(100, 410)
+            xx = random.randint(aaa,bbb)
+            yy = random.randint(aaa,bbb)
             if x-xx <= 0:
                 xx=x-1
             if y-yy <= 0:
                 yy=y-1
-            if x+512-xx >=width :
-                xx = -(width-x-515)
-            if y+512-yy >= height:
-                yy = -(height-y-515)
-            box = (x-xx,y-yy,x+512-xx, y+512-yy)
+            if x+sc-xx >=width :
+                xx = -(width-x-sc-2)
+            if y+sc-yy >= height:
+                yy = -(height-y-sc-2)
+            box = (x-xx,y-yy,x+sc-xx, y+sc-yy)
             a = im.crop(box)
             a.save(image_path+"/"+str(now)+".jpg")
             s=f"{now}.jpg,{xx},{yy}\n"
