@@ -20,8 +20,8 @@ now=0
 aaa=40
 bbb=210
 sc=256
-for i in range(data.shape[0]):
-    imn=data.iloc[i][0]
+for i in range(int(data.shape[0])):
+    imn=str(data.iloc[i][0])
     im = Image.open(imn)
     width, height = im.size
     left,right,up,down=data.iloc[i].left,data.iloc[i].right,data.iloc[i].up,data.iloc[i].down
